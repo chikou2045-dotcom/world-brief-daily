@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="每日全球新闻晨报：科技、职业发展与世界热点。"
+    />
+    <title>世界晨报</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-glow"></div>
+      <nav class="nav shell">
+        <a class="brand" href="./index.html" aria-label="世界晨报首页">
+          <span class="brand-mark">W</span>
+          <span>WORLD BRIEF</span>
+        </a>
+        <span class="edition">DAILY EDITION</span>
+      </nav>
+
+      <section class="hero shell">
+        <div>
+          <p class="eyebrow">你的每日全球视野</p>
+          <h1>世界晨报</h1>
+          <p class="hero-copy">
+            用十条重要新闻，快速掌握科技变化、职业趋势与当日世界热点。
+          </p>
+        </div>
+        <div class="hero-meta">
+          <p id="issue-date">等待更新</p>
+          <p id="update-time">每日 08:00 更新</p>
+        </div>
+      </section>
+    </header>
+
+    <main class="shell">
+      <section class="summary-card" aria-labelledby="summary-heading">
+        <p class="section-kicker">MORNING OVERVIEW</p>
+        <h2 id="summary-heading">今日概览</h2>
+        <p id="overview">
+          首期晨报将在下一次自动化运行后生成。站点已经准备就绪。
+        </p>
+      </section>
+
+      <section class="brief-section" aria-labelledby="brief-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">TOP STORIES</p>
+            <h2 id="brief-heading">今日精选</h2>
+          </div>
+          <div class="filter-row" id="filters" aria-label="按主题筛选"></div>
+        </div>
+        <div class="story-grid" id="story-grid"></div>
+      </section>
+
+      <section class="watch-section" aria-labelledby="watch-heading">
+        <p class="section-kicker">WATCH LIST</p>
+        <h2 id="watch-heading">值得继续关注</h2>
+        <div class="watch-list" id="watch-list"></div>
+      </section>
+    </main>
+
+    <footer class="footer shell">
+      <p>每日 08:00 自动更新 · 科技 · 职业发展 · 全球热点</p>
+      <p id="footer-note">新闻摘要仅供快速阅读，请以原始报道为准。</p>
+    </footer>
+
+    <script src="./data/latest.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
