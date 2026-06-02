@@ -2,6 +2,8 @@
 
 这是一个无需构建步骤的静态网站。
 
+公网地址：<https://chikou2045-dotcom.github.io/world-brief-daily/>
+
 ## 本地预览
 
 在此目录运行：
