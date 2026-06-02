@@ -68,7 +68,15 @@
       <p id="footer-note">新闻摘要仅供快速阅读，请以原始报道为准。</p>
     </footer>
 
-    <script src="./data/latest.js"></script>
-    <script src="./app.js"></script>
+    <script>
+      const briefScript = document.createElement("script");
+      briefScript.src = `./data/latest.js?v=${Date.now()}`;
+      briefScript.onload = () => {
+        const appScript = document.createElement("script");
+        appScript.src = "./app.js";
+        document.body.append(appScript);
+      };
+      document.body.append(briefScript);
+    </script>
   </body>
 </html>
