@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="每日全球新闻晨报：科技、职业发展与世界热点。"
+      content="每日全球新闻晨报：经济、科技、生活、欧美热点、中国热点与日本热点。"
     />
     <title>世界晨报</title>
     <link rel="stylesheet" href="./styles.css" />
@@ -26,7 +26,7 @@
           <p class="eyebrow">你的每日全球视野</p>
           <h1>世界晨报</h1>
           <p class="hero-copy">
-            用十条重要新闻，快速掌握科技变化、职业趋势与当日世界热点。
+            每日精选二十条重要新闻，关注经济、科技、生活与区域热点。
           </p>
         </div>
         <div class="hero-meta">
@@ -51,8 +51,15 @@
             <p class="section-kicker">TOP STORIES</p>
             <h2 id="brief-heading">今日精选</h2>
           </div>
-          <div class="filter-row" id="filters" aria-label="按主题筛选"></div>
+          <div class="brief-controls">
+            <label class="date-control">
+              <span>阅读日期</span>
+              <select id="issue-select" aria-label="选择晨报日期"></select>
+            </label>
+            <div class="filter-row" id="filters" aria-label="按主题筛选"></div>
+          </div>
         </div>
+        <p class="load-status" id="load-status" role="status"></p>
         <div class="story-grid" id="story-grid"></div>
       </section>
 
@@ -64,19 +71,25 @@
     </main>
 
     <footer class="footer shell">
-      <p>每日 08:00 自动更新 · 科技 · 职业发展 · 全球热点</p>
+      <p>每日 08:00 自动更新 · 经济 · 科技 · 生活 · 欧美 · 中国 · 日本</p>
       <p id="footer-note">新闻摘要仅供快速阅读，请以原始报道为准。</p>
     </footer>
 
     <script>
-      const briefScript = document.createElement("script");
-      briefScript.src = `./data/latest.js?v=${Date.now()}`;
-      briefScript.onload = () => {
+      function loadScript(src, onload) {
+        const script = document.createElement("script");
+        script.src = `${src}?v=${Date.now()}`;
+        script.onload = onload;
+        document.body.append(script);
+      }
+
+      loadScript("./data/archive/index.js", () => {
+        loadScript("./data/latest.js", () => {
         const appScript = document.createElement("script");
-        appScript.src = "./app.js";
+          appScript.src = `./app.js?v=${Date.now()}`;
         document.body.append(appScript);
-      };
-      document.body.append(briefScript);
+        });
+      });
     </script>
   </body>
 </html>

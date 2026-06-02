@@ -220,6 +220,38 @@ h2 {
   justify-content: end;
 }
 
+.brief-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: end;
+}
+
+.date-control {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.date-control select {
+  padding: 8px 30px 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--green-deep);
+  background: rgba(255, 253, 248, 0.82);
+  font: inherit;
+}
+
+.load-status {
+  min-height: 20px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
 .filter-button {
   padding: 8px 12px;
   border: 1px solid var(--line);
@@ -391,5 +423,9 @@ h2 {
 
   .filter-row {
     justify-content: start;
+  }
+
+  .brief-controls {
+    align-items: start;
   }
 }
