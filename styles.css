@@ -322,6 +322,30 @@ h2 {
   color: var(--green);
 }
 
+.story-detail {
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.story-detail summary {
+  padding: 13px 0 4px;
+  color: var(--green);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 800;
+  list-style-position: inside;
+}
+
+.story-detail p {
+  margin: 8px 0 2px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--gold);
+  color: #465b55;
+  background: rgba(238, 232, 220, 0.48);
+  font-size: 0.88rem;
+  line-height: 1.85;
+}
+
 .story-meta {
   display: flex;
   gap: 12px;

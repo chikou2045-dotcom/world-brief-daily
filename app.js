@@ -36,6 +36,21 @@ function createElement(tag, className, text) {
   return element;
 }
 
+function buildStoryDetail(story) {
+  if (story.detail) return story.detail;
+
+  const parts = [
+    story.summary,
+    story.whyItMatters,
+    `这条消息由${story.source || "公开来源"}于${story.date || "近日"}发布或报道。`,
+    "从更广的背景看，事件的后续影响取决于政策执行、市场反馈以及相关机构是否公布更多可核验信息。",
+    "读者可重点关注后续数据、实施范围和各方回应，以判断它会否进一步影响就业、消费、企业经营或公共服务。",
+  ].filter(Boolean);
+
+  const detail = parts.join("");
+  return detail.length > 300 ? `${detail.slice(0, 297)}……` : detail;
+}
+
 function renderStories() {
   const visibleStories =
     activeCategory === "全部"
@@ -66,6 +81,15 @@ function renderStories() {
     const whyLabel = createElement("strong", "", "关注理由：");
     why.append(whyLabel, document.createTextNode(story.whyItMatters || "值得持续关注。"));
     card.append(why);
+
+    const detail = createElement("details", "story-detail");
+    const detailToggle = createElement("summary", "", "展开详情");
+    const detailText = createElement("p", "", buildStoryDetail(story));
+    detail.addEventListener("toggle", () => {
+      detailToggle.textContent = detail.open ? "收起详情" : "展开详情";
+    });
+    detail.append(detailToggle, detailText);
+    card.append(detail);
 
     const meta = createElement("div", "story-meta");
     const source = createElement("span", "", `${story.source || "来源待补充"} · ${story.date || ""}`);
