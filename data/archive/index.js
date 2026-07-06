@@ -1,5 +1,10 @@
 window.BRIEF_ARCHIVE = [
   {
+    "date": "2026-07-06",
+    "label": "2026年7月6日",
+    "file": "./data/archive/2026-07-06.js"
+  },
+  {
     "date": "2026-07-05",
     "label": "2026年7月5日",
     "file": "./data/archive/2026-07-05.js"
